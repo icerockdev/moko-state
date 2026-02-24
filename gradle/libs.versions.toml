@@ -1,0 +1,13 @@
+[versions]
+kotlinVersion = "2.1.10"
+coroutinesVersion = "1.10.2"
+mokoStateVersion = "0.1.0"
+
+[libraries]
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
+coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutinesVersion" }
+
+kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
+androidGradlePlugin = { module = "com.android.tools.build:gradle", version = "8.6.1" }
+mokoGradlePlugin = { module = "dev.icerock.moko:moko-gradle-plugin", version = "0.6.0" }
+mobileMultiplatformGradlePlugin = { module = "dev.icerock:mobile-multiplatform", version = "0.14.4" }
