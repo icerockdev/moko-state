@@ -1,7 +1,6 @@
 /*
  * Copyright 2026 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
  */
-import org.gradle.api.internal.artifacts.DefaultModuleVersionSelector
 
 buildscript {
     repositories {
@@ -15,14 +14,24 @@ buildscript {
         classpath(libs.androidGradlePlugin)
         classpath(libs.mokoGradlePlugin)
         classpath(libs.mobileMultiplatformGradlePlugin)
+        classpath(":build-logic")
     }
 }
 
 val mokoVersion = libs.versions.mokoStateVersion.get()
+
 allprojects {
-    group = "dev.icerock.moko"
-    version = mokoVersion
+    plugins.withId("org.gradle.maven-publish") {
+        group = "dev.icerock.moko"
+        version = mokoVersion
+    }
 }
+
+// required for nexus plugin
+group = "dev.icerock.moko"
+version = mokoVersion
+
+apply(plugin = "nexus-publication-convention")
 
 tasks.register("clean", Delete::class).configure {
     delete(rootProject.buildDir)
