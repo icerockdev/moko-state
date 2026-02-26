@@ -22,17 +22,6 @@ val mokoVersion = libs.versions.mokoStateVersion.get()
 allprojects {
     group = "dev.icerock.moko"
     version = mokoVersion
-
-    configurations.configureEach {
-        resolutionStrategy {
-            val coroutines: MinimalExternalModuleDependency = rootProject.libs.coroutines.get()
-            val forcedCoroutines: ModuleVersionSelector = DefaultModuleVersionSelector.newSelector(
-                coroutines.module,
-                coroutines.versionConstraint.requiredVersion
-            )
-            force(forcedCoroutines)
-        }
-    }
 }
 
 tasks.register("clean", Delete::class).configure {
