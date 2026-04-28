@@ -17,14 +17,19 @@ class RemoteStateTests {
     fun testSuccess() {
         val success = RemoteState.Success("data")
         assertTrue(success.isSuccess())
+        assertFalse(success.isError())
+        assertFalse(success.isLoading())
         assertEquals("data", success.data)
     }
 
     @Test
     fun testError() {
-        val error = RemoteState.Error(Exception("test"))
+        val exception = Exception("test")
+        val error = RemoteState.Error(exception)
         assertFalse(error.isSuccess())
-        assertTrue(error is RemoteState.Error)
+        assertTrue(error.isError())
+        assertFalse(error.isLoading())
+        assertEquals(exception, error.error)
     }
 
     @Test
@@ -51,6 +56,19 @@ class RemoteStateTests {
 
         val error = RemoteState.Error(Exception("test"))
         assertNull(error.data)
+    }
+
+    @Test
+    fun testErrorProperty() {
+        val success = RemoteState.Success("test")
+        assertNull(success.error)
+
+        val loading = RemoteState.Loading
+        assertNull(loading.error)
+
+        val exception = Exception("test")
+        val error = RemoteState.Error(exception)
+        assertEquals(exception, error.error)
     }
 
     @Test

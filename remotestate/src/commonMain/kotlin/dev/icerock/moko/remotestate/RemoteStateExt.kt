@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 fun <K : Any, T : Any, E : Any> RemoteState<T, E>.mapSuccess(map: (T) -> K): RemoteState<K, E> {
     return when (this) {
         is Success -> Success(map(this.data))
-        is RemoteState.Error -> this
+        is Error -> this
         Loading -> Loading
     }
 }
@@ -20,7 +20,7 @@ fun <K : Any, T : Any, E : Any> RemoteState<T, E>.mapSuccess(map: (T) -> K): Rem
 fun <K : Any, T : Any, E : Any> RemoteState<T, E>.mapError(map: (E) -> K): RemoteState<T, K> {
     return when (this) {
         is Success -> this
-        is RemoteState.Error -> Error(map(this.error))
+        is Error -> Error(map(this.error))
         Loading -> Loading
     }
 }
@@ -29,7 +29,11 @@ fun <T : Any, E : Any> RemoteState<T, E>.isLoading(): Boolean = this is Loading
 
 fun <T : Any, E : Any> RemoteState<T, E>.isSuccess(): Boolean = this is Success
 
+fun <T : Any, E : Any> RemoteState<T, E>.isError(): Boolean = this is Error
+
 val <T : Any, E : Any> RemoteState<T, E>.data: T? get() = (this as? Success<T>)?.data
+
+val <T : Any, E : Any> RemoteState<T, E>.error: E? get() = (this as? Error<E>)?.error
 
 /**
  * Attempts to atomically update data in the RemoteState.Success state.
