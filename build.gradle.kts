@@ -13,8 +13,6 @@ buildscript {
         classpath(libs.kotlinGradlePlugin)
         classpath(libs.androidGradlePlugin)
         classpath(libs.mokoGradlePlugin)
-        classpath(libs.mobileMultiplatformGradlePlugin)
-        classpath(":build-logic")
     }
 }
 
@@ -25,14 +23,4 @@ allprojects {
         group = "dev.icerock.moko"
         version = mokoVersion
     }
-}
-
-// required for nexus plugin
-group = "dev.icerock.moko"
-version = mokoVersion
-
-apply(plugin = "nexus-publication-convention")
-
-tasks.register("clean", Delete::class).configure {
-    delete(rootProject.buildDir)
 }

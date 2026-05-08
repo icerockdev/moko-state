@@ -4,14 +4,6 @@
 
 rootProject.name = "moko-state"
 
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
-
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 dependencyResolutionManagement {
@@ -20,7 +12,5 @@ dependencyResolutionManagement {
         google()
     }
 }
-
-includeBuild("build-logic")
 
 include(":remotestate")

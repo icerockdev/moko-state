@@ -3,13 +3,8 @@
  */
 
 plugins {
-    id("dev.icerock.moko.gradle.multiplatform.mobile")
+    id("dev.icerock.moko.gradle.multiplatform.all")
     id("dev.icerock.moko.gradle.detekt")
-    id("publication-convention")
-}
-
-kotlin {
-    jvm()
 }
 
 android {

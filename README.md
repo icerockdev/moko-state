@@ -28,19 +28,22 @@ implementation("dev.icerock.moko:remotestate:[latestVersion]")
 
 ```kotlin
 import dev.icerock.moko.remotestate.RemoteState
+import dev.icerock.moko.remotestate.mapSuccess
 
 // Define your state
-val state = MutableStateFlow<RemoteState<Data, Error>>(Loading)
+val stateFlow = MutableStateFlow<RemoteState<String, Exception>>(
+    value = RemoteState.Loading
+)
 
 // Update state
-state.value = Success(Data("Hello, World!"))
+stateFlow.value = RemoteState.Success("Hello, World!")
 
-// Map success
-val mappedState = state.mapSuccess { it.uppercase() }
+// Map success value
+val mappedState = stateFlow.value.mapSuccess { it.uppercase() }
 
 // Check state
-if (state.isSuccess()) {
-    println(state.data)
+if (mappedState.isSuccess()) {
+    println(mappedState.data)
 }
 ```
 
