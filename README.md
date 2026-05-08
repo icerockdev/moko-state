@@ -4,7 +4,8 @@ A Kotlin Multiplatform library for managing remote state in your Android, iOS, a
 
 ## Overview
 
-Moko RemoteState provides a simple and efficient way to handle remote data states with Kotlin's coroutines and Flow. It's designed for multiplatform projects, allowing you to share state management logic across iOS, Android, and Web platforms.
+Moko State provides a simple and efficient way to handle remote data states with Kotlin's coroutines and Flow.
+It's designed for multiplatform projects, allowing you to share state management logic across iOS, Android, and Web platforms.
 
 ## Features
 
@@ -21,14 +22,14 @@ Moko RemoteState provides a simple and efficient way to handle remote data state
 Add the dependency to your common source set:
 
 ```kotlin
-implementation("dev.icerock.moko:remotestate:[latestVersion]")
+implementation("dev.icerock.moko:state:[latestVersion]")
 ```
 
 ### Usage
 
 ```kotlin
-import dev.icerock.moko.remotestate.RemoteState
-import dev.icerock.moko.remotestate.mapSuccess
+import dev.icerock.moko.state.RemoteState
+import dev.icerock.moko.state.mapSuccess
 
 // Define your state
 val stateFlow = MutableStateFlow<RemoteState<String, Exception>>(

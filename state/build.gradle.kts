@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.icerock.moko.remotestate"
+    namespace = "dev.icerock.moko.state"
 }
 
 dependencies {

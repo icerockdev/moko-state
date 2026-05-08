@@ -13,4 +13,4 @@ dependencyResolutionManagement {
     }
 }
 
-include(":remotestate")
+include(":state")

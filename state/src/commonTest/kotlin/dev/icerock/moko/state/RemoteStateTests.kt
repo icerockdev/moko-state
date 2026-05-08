@@ -1,4 +1,4 @@
-package dev.icerock.moko.remotestate
+package dev.icerock.moko.state
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlin.test.Test

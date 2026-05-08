@@ -2,11 +2,11 @@
  * Copyright 2026 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
  */
 
-package dev.icerock.moko.remotestate
+package dev.icerock.moko.state
 
-import dev.icerock.moko.remotestate.RemoteState.Error
-import dev.icerock.moko.remotestate.RemoteState.Loading
-import dev.icerock.moko.remotestate.RemoteState.Success
+import dev.icerock.moko.state.RemoteState.Error
+import dev.icerock.moko.state.RemoteState.Loading
+import dev.icerock.moko.state.RemoteState.Success
 import kotlinx.coroutines.flow.MutableStateFlow
 
 fun <K : Any, T : Any, E : Any> RemoteState<T, E>.mapSuccess(map: (T) -> K): RemoteState<K, E> {
