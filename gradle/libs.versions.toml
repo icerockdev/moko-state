@@ -1,7 +1,7 @@
 [versions]
 kotlinVersion = "2.1.10"
 coroutinesVersion = "1.10.2"
-mokoStateVersion = "0.1.0"
+mokoStateVersion = "0.1.1"
 
 [libraries]
 coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
