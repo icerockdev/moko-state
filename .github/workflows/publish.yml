@@ -11,7 +11,7 @@ on:
 jobs:
   publish:
     name: Publish library at mavenCentral
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     env:
       OSSRH_USER: ${{ secrets.OSSRH_USER }}
       OSSRH_KEY: ${{ secrets.OSSRH_KEY }}
@@ -19,9 +19,6 @@ jobs:
       SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
       SIGNING_KEY: ${{ secrets.GPG_KEY_CONTENTS }}
 
-    strategy:
-      matrix:
-        os: [ macos-latest, windows-latest, ubuntu-latest ]
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17
