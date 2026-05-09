@@ -4,6 +4,8 @@
 
 plugins {
     id("dev.icerock.moko.gradle.multiplatform.all")
+    id("dev.icerock.moko.gradle.publication")
+    id("dev.icerock.moko.gradle.stub.javadoc")
     id("dev.icerock.moko.gradle.detekt")
 }
 
@@ -13,5 +15,6 @@ android {
 
 dependencies {
     commonMainImplementation(libs.coroutines)
+
     commonTestImplementation(kotlin("test"))
 }
